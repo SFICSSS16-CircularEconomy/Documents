@@ -29,6 +29,13 @@
 
 
 \begin{abstract}
+The 'circular economy' is recent approach on questions of sustainability. The current 'take, make, waste' way of producing is considered to be not sustainable anymore. Current thoughts on 'closing the loop' mechanisms on producing and consuming are booming in many different academic fields. However, not yet from an integrated point of view. The idea of 'closing the loop' mechanisms corresponds to complex system paradigms, however complexity science has hardly been utilized in this field. In this project we started brainstorming on how complexity science can contribute to the field of circular economy. We think there are many ways in which complexity science can contribute, both in methods and in theory. 
+
+In the past four weeks at CSSS 2016 we focused by modeling the circular economy by means of an agent based model. So far we have made an toy model that models waste flow between actors on the level of organizations/businesses. The purpose of this model is to investigate how waste flow is affected by different parameters such as, distance, clustering, transportation cost and other parameters. After the CSSS 2016 we will continue to work on the model, it will be validated by applying it to real world spatial maps and infrastructures, and calibrate it to data of first implementations of `circular economy practices'. The goal is to make a basis for an open source circular economy application that can be used to monitor the circular economy, as well as create a market place for waste products. In what follows a first draft of the paper of the toy model.
+
+
+
+
 
 \end{abstract}
 
@@ -41,29 +48,33 @@
 \thispagestyle{empty}
 
 
-\section*{General project description: CSSS 2016}
-The 'circular economy' is recent approach on questions of sustainability. The current 'take, make, waste' way of producing is considered to be not sustainable anymore. Current thoughts on 'closing the loop' mechanisms on producing and consuming are booming in many different academic fields. However, not yet from an integrated point of view. The idea of 'closing the loop' mechanisms corresponds to complex system paradigms, however complexity science has hardly been utilized in this field. In this project we started brainstorming on how complexity science can contribute to the field of circular economy. We think there are many ways in which complexity science can contribute, both in methods and in theory. 
-
-In the past four weeks at CSSS 2016 we focused by modeling the circular economy by means of an agent based model. So far we have made an toy model that models waste flow between actors on the level of organizations/businesses. The purpose of this model is to investigate how waste flow is affected by different parameters such as, distance, clustering, transportation cost and other parameters. After the CSSS 2016 we will continue to work on the model, it will be validated by applying it to real world spatial maps and infrastructures, and calibrate it to data of first implementations of `circular economy practices'. The goal is to make a basis for an open source circular economy application that can be used to monitor the circular economy, as well as create a market place for waste products. In what follows a first draft of the paper of the toy model.
-
 
 
 %%%%%%%%%%%%%%%%%%
-\section{Introduction}
+\section*{Introduction}
 
 % model rationale etc
 
-\subsection{Description of circular economy concept}
+\subsection*{Towards a Circular Economy}
+
+%%%%%%
+% Concept description
+%%%%%%
+
+\subsubsection*{Concept}
 
 The notion of a circular economy proposes that traditionally separate industries act collectively to obtain a mutual competitive advantage through their physical exchanges of materials, energy, water, and byproducts~\cite{chertow2000industrial}. Described as a material symbiosis, a circular economy approach seeks to recycle residual waste or by-products through the development of complex interlinkages between companies and firms.  In direct contrast with the conventional linear economic approach of material production of produce-use-dispose, the circular economy concept seeks to reduce the uptake of virgin materials while also reducing total waste production by accommodating the cycle of materials (EU Document). This concept is distinct from traditional recycling whereby products are often reduced to their lowest nutrient level, and then disposed of. In a circular economy approach, waste or by product materials of one firm have the potential to become high nutrient level inputs to another firm. As a result, there isn’t a sequential downgrading of waste or by-products, but rather a full cycling of materials. 
 
 
 %%%%%%%%%%%%%%%%%%%%%
-\subsection{Prospective Literature review}
+% Prospective Literature review 
+%%%%%%%%%%%
 
 % could we copy-paste here the literature review that was done in the google doc ?-> would give a bit more background 
 
-\textit{This section gives a broad prospective literature review, not necessarily structured.}
+%\textit{This section gives a broad prospective literature review, not necessarily structured.}
+
+\subsubsection*{Existing Works}
 
 \paragraph{Urban Metabolism}
 
@@ -95,30 +106,48 @@ Citation on information theory in ecological systems. Could be interesting for m
 
 
 
-\subsection{Existing studies into circular economies}
+%\subsection{Existing studies into circular economies}
+
+% -> included in literature
 
 This approach has been practically adopted on a small scale in Asia, specifically in China, via the establishment of eco-industrial parks. 
 
 There have been a number of publications which have assessed the theoretical options and implications of adopting a circular economy approach. 
 
-\subsection{Rational for our model/study}
+
+
+
+%%%%%%%%%%%%%%%
+\subsection*{Models of Simulation to Assess Feasibility}
+
+% Rational for our model/study : describe what we want to do, why and how
 
 While many large organizations, including the EU and the UN,  have expressed interest in adopting the a circular economy approach, much work which has been done has either focused on small scale applied examples or on theoretical frameworks and models. As such, studies are needed which seek to model the dynamics of the circular economy concept, and begin to offer larger more generalized examples of how the concept feasibly be achieved. 
 
 
-%%%%%%%%%%%%%%%%%%
-\section{Model Description}
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%
-\subsection{Model Core}
+%\section{Model Description}
+\section*{Methods} \label{sec:methods} % for scirep, standard sectioning
 
-\paragraph{Model setup}
+
+%%%%%%%%%%%%%%%%%%
+\subsection*{Model Core}
+
+
+%%%%%%%%%%%%%%%%%%
+\subsubsection*{Model setup}
 
 The core part of the model is assumed to take place at a single scale, but with variable spatial range. The agents are $N$ companies indexed by $1\leq i\leq N$, that have a fixed spatial position $\vec{x}_i$. In order to focus on the exchange of by-products as inputs for other companies, we choose not to model the effective product nor the ``external'' inputs. For the sake of simplicity, by-products are assumed to be described by a finite-dimensional real variable $\vec{y}\in \mathbb{R}^d$. Finite values are a reasonable domain for by-products characteristics as it allows to normalize along each axis and take $\vec{y} \in \left[0,1\right]^d$. Each company has a demand function and an offer function, which were used to establish links between pairs of companies (i.e. exchange of by-products). These function are defined in a simple manner by $\vec{D}_i (\vec{y})= D_i^{(0)}\cdot \vec{d}_i (\vec{y})$ and $\vec{O}_i (\vec{y})= O_i^{(0)}\cdot \vec{o}_i (\vec{y})$, where $\vec{d}_i$ and $\vec{o}_i$ are multivariate probability densities. We started our simulation with a set of companies that were not linked with each other, and then grew the network based on rules determining exchange of by-products (effectively creating links between companies).
 
 
 
-\paragraph{Growing the circular economy network}
+%%%%%%%%%%%%%%%%%%
+\subsubsection*{Growing the circular economy network}
 
 The temporal scope of the model evolution was assumed to be at a mesoscopic time scale, following the assumption that companies localization and the surrounding urban environment (which includes the transportation cost landscape) remain constant. The temporal dynamics consist of network growth, i.e. the progressive establishment of complementary links between companies that correspond to flows of by-products.
 
@@ -151,7 +180,7 @@ In our model, at each time step, the following set of rules was applied:
 
 
 
-\paragraph{Indicators of Circularity}
+\subsubsection*{Indicators of Circularity}
 
 % Q : what indicators ?
 % Q : find a price indicator
@@ -204,17 +233,6 @@ The initial position of companies can be setup in many ways. The most basic case
 
 
 
-%%%%%%%%%%%%%%%%%%
-\subsection{Extensions}
-
-Various possible model extensions include for example :
-\begin{itemize}
-\item Bargain games with more than two players, implying game-theory framework to establish links among potential partners
-\item Random Utility Models
-\end{itemize}
-
-
-
 
 %%%%%%%%%%%%%%%
 % RQ : same price for each material (can be tricked with general cost)
@@ -235,33 +253,34 @@ Various possible model extensions include for example :
 
 
 %%%%%%%%%%%%%%%%%%
-\section{Results}
+\section*{Results}
 
-% TODO : when all line up, should be perfectly circular - sensitivity of moving slightly distribs.
+% TODO : when all line up, should be perfectly circular 
+%  -> interesting to look at the sensitivity of circularity indicators when moving slightly distribs.
 
-% calibration on a given parc
+% calibration on a given parc ?
 
 % web application ?
 
 
 
 %%%%%%%%%%%%%%%%%%
-\subsection{Implementation}
+\subsection*{Implementation}
 
 A first prototype was implemented in \texttt{NetLogo}. Further developments will include a \texttt{R} version, especially for the integration into a \texttt{shiny} web application for a real world use as described before. Model exploration was done using model exploration software OpenMole~\cite{reuillon2013openmole}. Code and results are available on the open repository of the project\footnote{at \texttt{https://github.com/SFICSSS16-CircularEconomy/CircularEconomy}}.
 
 
 %%%%%%%%%%%%%%%%%%
-\subsection{Model Exploration}
+\subsection*{Model Exploration}
 
 %%%%%%%%%%%%%%%%%%
-\subsubsection{Internal model validation}
+\subsubsection*{Internal model validation}
 
 First of all, we verify the internal consistence of the model by looking at statistical distribution of indicators (shown in fig.~\ref{fig:stat-distrib} for some points of the parameter space). Distribution are unimodal but not necessarily normal. We can however roughly estimate the number of runs needed to reach a certain confidence interval on the mean. For example, assuming normal laws, to have a $\alpha$ level CI of width $\sigma$ around the mean, the result is independent of distributions and verifies $\sigma = \frac{4\sigma \cdot z_{1-\alpha}}{\sqrt{n}}$, what gives $n\simeq 64$. We run experiments with $n=50$ in the following.
 
 
 %%%%%%%%%%%%%%%%%%
-\subsubsection{Uniform spatialization}
+\subsubsection*{Uniform spatialization}
 
 We ran first experiments with a uniform initial distribution. Figures~\ref{fig:heatmap} and~\ref{fig:pareto} show heatmaps and Pareto front.
 
@@ -296,12 +315,12 @@ We ran first experiments with a uniform initial distribution. Figures~\ref{fig:h
 
 
 %%%%%%%%%%%%%%%%%%
-\subsubsection{Synthetic city system}
+\subsubsection*{Synthetic city system}
 
 \textit{See repository for figures for similar experiments with synthetic system}
 
 %%%%%%%%%%%%%%%%%%
-\subsubsection{Real city system}
+\subsubsection*{Real city system}
 
 \textit{idem}
 
@@ -318,6 +337,23 @@ We ran first experiments with a uniform initial distribution. Figures~\ref{fig:h
 
 
 
+
+
+
+%%%%%%%%%%%%%%%%
+\section*{Discussion}
+
+
+
+
+%%%%%%%%%%%%%%%%%%
+\subsection*{Possible Extensions}
+
+Various possible model extensions include for example :
+\begin{itemize}
+\item Bargain games with more than two players, implying game-theory framework to establish links among potential partners
+\item Random Utility Models
+\end{itemize}
 
 
 
