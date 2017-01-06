@@ -4,23 +4,32 @@
 \usepackage{graphicx}
 
 
+%%%%%
+% variable to include comments or not in the compilation ; set to 1 to include
+\def \draft {1}
+
+
 % writing utilities
 
 % comments and responses
 %  -> use this comment to ask questions on what other wrote/answer questions with optional arguments (up to 4 answers)
 \usepackage{xparse}
+\usepackage{ifthen}
 \DeclareDocumentCommand{\comment}{m o o o o}
-{%
+{\ifthenelse{\draft=1}{
     \textcolor{red}{\textbf{C : }#1}
     \IfValueT{#2}{\textcolor{blue}{\textbf{A1 : }#2}}
     \IfValueT{#3}{\textcolor{ForestGreen}{\textbf{A2 : }#3}}
     \IfValueT{#4}{\textcolor{red!50!blue}{\textbf{A3 : }#4}}
     \IfValueT{#5}{\textcolor{Aquamarine}{\textbf{A4 : }#5}}
+ }{}
 }
 
 
 % todo
-\newcommand{\todo}[1]{\textcolor{red!50!blue}{\textbf{TODO : \textit{#1}}}}
+\newcommand{\todo}[1]{
+\ifthenelse{\draft=1}{\textcolor{red!50!blue}{\textbf{TODO : \textit{#1}}}}{}
+}
 
 
 
@@ -97,9 +106,10 @@ Future developments will include the application to real world spatial maps and 
 \subsubsection*{Concept}
 
 The notion of a circular economy proposes that traditionally separate industries act collectively to obtain a mutual competitive advantage through their physical exchanges of materials, energy, water, and byproducts~\cite{chertow2000industrial}. Described as a material symbiosis, a circular economy approach seeks to recycle residual waste or by-products through the development of complex interlinkages between companies and firms.  In direct contrast with the conventional linear economic approach of material production of produce-use-dispose, the circular economy concept seeks to reduce the uptake of virgin materials while also reducing total waste production by accommodating the cycle of materials (EU Document).\comment{need the ref}
- This concept is distinct from traditional recycling whereby products are often reduced to their lowest nutrient level, and then disposed of. In a circular economy approach, waste or by product materials of one firm have the potential to become high nutrient level inputs to another firm. As a result, there isn’t a sequential downgrading of waste or by-products, but rather a full cycling of materials. 
+This concept is distinct from traditional recycling whereby products are often reduced to their lowest nutrient level, and then disposed of. In a circular economy approach, waste or by product materials of one firm have the potential to become high nutrient level inputs to another firm. As a result, there isn’t a sequential downgrading of waste or by-products, but rather a full cycling of materials. 
 
 
+  
 %%%%%%%%%%%%%%%%%%%%%
 % Interdisicplinary Literature review 
 %%%%%%%%%%%
@@ -108,7 +118,7 @@ The notion of a circular economy proposes that traditionally separate industries
 \subsubsection*{Existing Approaches}
 
 
-An interdisciplinary review on Circular Economy is done in~\cite{ghisellini2016review}.
+An interdisciplinary review on Circular Economy is done in~\cite{ghisellini2016review}. It is crucial to note that the concept is by essence trans-disciplinary, and that integrated approaches are necessary although epistemological clarifications are generally important for their success~\cite{sauve2016environmental}.
 
 
 \paragraph*{Urban Metabolism}
@@ -125,11 +135,7 @@ The field of industrial ecology begins to self-witness its own limitations and t
 
 \paragraph{Complexity in industrial symbiosis literature}
 
-The resilience of industrial symbioses networks is studied by~\cite{li2015resilience}, through simulations based on real data by looking at what the impact of node removal.
-
-\cite{zhu2013exploring} : Agent based model on resilience in industrial ecosystems, made in Netlogo.
-
-\cite{may1973stability} : Potential interesting book.
+The resilience of industrial symbioses networks is studied by~\cite{li2015resilience}, through simulations based on real data by looking at what the impact of node removal. In \cite{zhu2013exploring} an agent-based model on resilience in industrial ecosystems is proposed.
 
 
 
@@ -138,6 +144,7 @@ The resilience of industrial symbioses networks is studied by~\cite{li2015resili
 
 Citation on information theory in ecological systems. Could be interesting for model comparison : \cite{ulanowicz1991ecosystem}
 
+\cite{may1973stability} : Potential interesting book.
 
 
 
@@ -165,7 +172,7 @@ While many large organizations, including the EU and the UN,  have expressed int
 \cite{george2015circular} : model of economic growth with circular economy
 
 
-We propose thus in this monograph to tackle this issue at a modest level, by exploring patterns of theoretical feasibility from an agent-based modeling point of view. 
+We propose thus in this monograph to tackle this issue at a theoretical level level, by exploring patterns of feasibility from an agent-based modeling point of view. Questions related to effective supply chain implementation, depending on the domain, are beyond the scope of this paper but also well documented, as e.g. \cite{genovese2015sustainable}.
 
 It has been recently postulated that evidence-based methods, in particular agent-based modeling, could be crucial for economy in general~\cite{farmer2009economy}.
 
@@ -361,22 +368,6 @@ We ran first experiments with a uniform initial distribution. Figures~\ref{fig:h
 \end{figure}
 %%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%
-\begin{figure}
-\hspace{-2cm}\includegraphics[width=1.3\textwidth]{figures/heatmap_indics}
-\caption{Heatmaps of indicator values in the 4-D parameter space}
-\label{fig:heatmap}
-\end{figure}
-%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%
-\begin{figure}
-\hspace{-2cm}\includegraphics[width=1.3\textwidth]{figures/pareto_wasteCost_overlapThreshold}
-\caption{Pareto fronts of total waste against total cost, at fixed values of transportation cost and distribution standard deviation.}
-\label{fig:pareto}
-\end{figure}
-%%%%%%%%%%%%%%%%%%
-
 
 
 %%%%%%%%%%%%%%%%%%
@@ -475,10 +466,25 @@ Various possible model extensions include for example :
 \section*{Supplementary Materials}
 
 
+\subsection*{Model Exploration}
 
 
+%%%%%%%%%%%%%%%%%%
+\begin{figure}
+\hspace{-2cm}\includegraphics[width=1.3\textwidth]{figures/heatmap_indics}
+\caption{Heatmaps of indicator values in the 4-D parameter space}
+\label{fig:heatmap}
+\end{figure}
+%%%%%%%%%%%%%%%%%%
 
 
+%%%%%%%%%%%%%%%%%%
+\begin{figure}
+\hspace{-2cm}\includegraphics[width=1.3\textwidth]{figures/pareto_wasteCost_overlapThreshold}
+\caption{Pareto fronts of total waste against total cost, at fixed values of transportation cost and distribution standard deviation.}
+\label{fig:pareto}
+\end{figure}
+%%%%%%%%%%%%%%%%%%
 
 
 
