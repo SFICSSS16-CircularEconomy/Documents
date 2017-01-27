@@ -50,9 +50,9 @@ Modeling industrial symbiotic processes from a complex systems perspective}
 
 \affil[1]{Utrecht University, Department of Sociology, Utrecht, the Netherlands}
 \affil[2]{University of Oxford , Environmental Change Institute, Oxford, United Kingdom}
-\affil[3]{Université Paris 7, Geography, Paris, France}
+\affil[3]{Université Paris 7, UMR CNRS 8504 Géographie-cités, Paris, France}
 \affil[4]{Université Paris 7, Center for Research in Psychoanalysis,Paris, France}
-\affil[5]{University of Oxford, Department of Zoolog, Oxford, United Kingdom}
+\affil[5]{University of Oxford, Department of Zoology, Oxford, United Kingdom}
 \affil[6]{University of Minnesota, CBS Ecology, Evolution and Behavior, Minnesota, USA}
 \affil[7]{University of Toronto, Department of Civil Engineering, Toronto, Canada}
 \affil[8]{Delft University of Technology, 	
@@ -70,12 +70,12 @@ Department of Engineering Systems and Services, Delft, the Netherlands}
 
 
 \begin{abstract}
-The 'circular economy' is recent approach on questions of sustainability. An important concept within the circular economy is industrial symbioses. Industrial symbioses is about creating an integrated byproduct and waste cycle between industrial actors.These so  called `closing the loop' mechanisms are aimed at maximizing economic value and minimizing environmental effects.    The idea of these mechanisms corresponds to complex system paradigms, however complexity science has hardly been utilized in this field.
+The 'circular economy' is recent approach on questions of sustainability. An important concept within the circular economy is industrial symbioses. Industrial symbioses is about creating an integrated byproduct and waste cycle between industrial actors. These so called `closing the loop' mechanisms are aimed at maximizing economic value and minimizing environmental effects. The idea of these mechanisms corresponds to complex system paradigms, however complexity science has hardly been utilized in this field.
 %In this project we started brainstorming on how complexity science can contribute to the field of circular economy. We think there are many ways in which complexity science can contribute, both in methods and in theory. 
 %In the past four weeks at CSSS 2016 we focused by modeling the circular economy by means of an agent based model.
-In this \textit{working paper} we describe a toy model to model waste flow between actors on the level of organizations/businesses. Its purpose is to investigate how waste flow is affected by different parameters such as, distance, clustering, transportation cost and other parameters.
+In this \textit{working paper} we describe a toy model to model waste flow between actors on the level of organizations/businesses. Its purpose is to investigate how waste flow is affected by different parameters such as distance, clustering, transportation cost and other parameters.
 %After the CSSS 2016 we will continue to work on the model,
-In this paper we explain the rationale of the basic model, present some exploration of the model and we present some preliminary results. Future developments will include the application to real world spatial maps and infrastructures, and calibration to data of first real-world implementations of `circular economy practices'. The goal is to make a basis for an open source circular economy application that can be used to monitor the circular economy, as well as create a market place for waste products.
+In this paper we explain the rationale of the basic model, then we put forward an exploration of its possibilities and finally we present some preliminary results. Future developments include the application to real world spatial maps and infrastructures as well as calibration to data of first real-world implementations of `circular economy practices'. The goal is to make the groundwork for an open source application that can be used to monitor the circular economy, as well as \comment{as well as - and thus}create a market place for waste products.
 %In what follows a first draft of the paper of the toy model.
 \end{abstract}
 
@@ -97,21 +97,20 @@ In this paper we explain the rationale of the basic model, present some explorat
 
 % model rationale etc
 
-\subsection*{Towards a Circular Economy}
+%\subsection*{Towards a Circular Economy}
 
 %%%%%%
 % Concept description
 %%%%%%
 
-\subsubsection*{Concept}
+%\subsubsection*{Concept}
 
-The 'circular economy' is recent approach on questions of sustainability. The current 'take, make, waste' way of producing is considered to be not sustainable anymore. Current thoughts on 'closing the loop' mechanisms on producing and consuming are booming in many different academic fields. An important concept within the circular economy is `industrial symbioses'. The main idea of industrial symbioses is that traditionally separate industries act collectively to obtain a mutual competitive advantage through their physical exchanges of materials, energy, water, and byproducts and thereby creating an environmental advantage as well ~\cite{chertow2000industrial}. The industrial symbioses approach seeks to recycle residual waste or by-products through the development of complex interlinkages between companies and firms.  In direct contrast with the conventional linear economic approach of material production of produce-use-dispose, the circular economy concept seeks to reduce the uptake of virgin materials while also reducing total waste production by accommodating the cycle of materials.
- This concept is distinct from traditional recycling whereby products are often reduced to their lowest nutrient level, and then disposed of. In a circular economy approach, waste or by product materials of one firm have the potential to become high nutrient level inputs to another firm. As a result, there isn’t a sequential downgrading of waste or by-products, but rather a full cycling of materials. 
+The 'circular economy' is a recent approach on questions of\comment{on questions of - for } sustainability. The current 'take, make, waste' way of producing is considered to be not sustainable anymore. Current thoughts on 'closing the loop' mechanisms on producing and consuming are booming in many different academic fields. An important concept within the circular economy is `industrial symbioses'. The main idea of industrial symbioses is that traditionally separate industries can collectively act to obtain a mutual competitive advantage through the physical exchange of materials like energy, water and byproducts and thereby create an environmental advantage as well ~\cite{chertow2000industrial}. The industrial symbioses approach seeks to recycle residual waste or by-products through the development of complex interlinkages between companies and firms.  In direct contrast with the conventional linear economic approach of material production of produce-use-dispose\comment{ produce-use-dispose, or take-make-dispose, as stated earlier?}, the circular economy approach seeks to reduce the uptake of virgin\comment{virgin-raw } materials while also reducing total waste production by accommodating the cycle of materials.
+ This concept is distinct from traditional recycling whereby products are often reduced to their lowest nutrient level, and then disposed of. In a circular economy approach\comment{In a circular economy approach - Here}, waste or by product materials of one firm have the potential to become high nutrient level inputs to another firm. As a result, there isn’t a sequential downgrading of waste or by-products, but rather a full cycling of materials. 
 
+A crucial factor in industrial symbiotic processes is the geographical proximity of the different industrial actors. Industrial symbioses is about the physical exchange of waste/byproducts. In order to efficiently exchange byproducts, an industrial actor often has to look for the symbiotic possibilities in its direct geographical proximity. We can take the example of excess heat: it would be harder to keep it at the same temperature the further\comment{further- farther } it needs to be transferred. So symbiotic activities and optimizing waste flows will most likely be more successful if the industrial actors are near each other. Eco-industrial parks are often considered concrete realizations of the concept industrial symbioses \comment{ concept industrial symbioses - industrial symbiotic approach }. On these parks businesses work together to reduce waste and pollution, effectively sharing different kind of resources and exchanging byproducts. The key advantage is that these actors are located together, therefore exchanges and infrastructure are easier realized \comment{and infrastructure are easier realized- are brought on more easily by the shared infrastructure?}. However, these parks are often far from being self sufficient. In order to optimize `waste' flows, parks need to exchange with actors from different parks/geographical areas as well. This makes optimizing waste flow and `closing the loop' mechanisms a highly complex phenomenon, with actors on different levels and with different geographical distances. 
 
-A crucial factor in industrial symbiotic processes is the geographical proximity of the different industrial actors. Industrial symbioses is about the physical exchange of waste/byproducts. In order to efficiently exchange byproducts an industrial actor often has to look for the symbiotic possibilities in its direct geographical proximity. Think for instance of excess heat. It is harder to keep excess heat the same temperature the further it needs to be transferred. So symbiotic activities and optimizing waste flows will most likely be more successful if the industrial actors are near each other. Eco-industrial parks are often considered concrete realizations of the concept industrial symbioses. On these parks businesses work together to reduce waste and pollution and effectiveness share different kind of resources and exchange byproducts. The key advantage is that these actors are located together and therefore exchanges and infrastructure are easier realized. However, these parks are often far from being self sufficient. In order to optimize `waste' flows parks need to exchange with actors from different parks/geographical areas as well. This makes optimizing waste flow and `Closing the loop' mechanisms a highly complex phenomenon, with actors on different levels and on different geographical distances. 
-
-So `closing the loop' mechanisms in industrial symbiotic exchanges have a clear spatial component. However, the role of this spatial component has never been formally researched. While many large organizations, including the EU and the UN,  have expressed interest in adopting the a circular economy approach, much work which has been done has either focused on small scale applied examples or on theoretical frameworks and models. As such, studies are needed which seek to model the dynamics of the circular economy concept, and begin to offer larger more generalized examples of how the concept feasibly be achieved. We propose thus in this working paper to tackle this issue at a modest level, by exploring patterns of theoretical feasibility from an agent-based modeling point of view. It has been recently postulated that evidence-based methods, in particular agent-based modeling, could be crucial for economy in general~\cite{farmer2009economy}. In this paper we study the effect of different geographical concepts on the the functioning of a symbiotic system as a whole, by means of an agent based model. In this model actors are located on a spatial plane. Each actor has an input and an output in terms of needs and waste. The goal of the agents is to minimize the waste and maximize there economical profit. First we study whether there is a spatial effect on the functioning of the system by comparing a uniform spatial distribution with a theoretical real world distribution and a empirical distribution. Secondly, we study the effect of geographically matching the actors on there input and output on the functioning of the system. In what follows we'll present a working paper in which we explain the rationale of the basic model, present some exploration of the model and we present some preliminary results.  
+So\comment{so- Therefore, } `closing the loop' mechanisms in industrial symbiotic exchanges have a clear spatial component. However, the role of this spatial component has never been formally researched. While many large organizations, including the EU and the UN, have expressed interest in adopting the a circular economy approach, much of the work done so far has either focused on small scale applied examples or on theoretical frameworks and models. As such, more studies are needed to model the dynamics at play in the circular economy approach, in order to offer more examples and begin to offer larger more generalized examples of how the concept feasibly be achieved\comment{Change this whole phrase to something like: Hence, in order to offer a broader spectrum of examples on how a circular economy approach can be feasibly achieved, more studies are needed to model the dynamics that are at play}. We propose thus in this working paper to tackle this issue at a modest level, by exploring patterns of theoretical feasibility from an agent-based modeling point of view\comment{we could change this phrase to: Thus, to begin to tackle this issue, in this working paper we propose exploring some patterns of theoretical feasibility from an agent-based modeling point of view}. It has been recently postulated that evidence-based methods, in particular agent-based modeling, could be crucial for economy in general~\cite{farmer2009economy}. More concretely, we study the effect of different geographical concepts on the functioning of a symbiotic system as a whole, by means of an agent based model. In this model actors are located on a spatial plane. Each actor has an input and an output in terms of needs and waste. The goal of the agents is to minimize the waste and maximize their economical profit. First we study whether there is a spatial effect on the functioning of the system by comparing a uniform spatial distribution with a theoretical real world distribution and an empirical distribution. Secondly, we study the effect of geographically matching the actors on their input and output on the functioning of the system. In what follows we will present the rationale of the basic model as well as its exploration, finally presenting the ensuing preliminary results.  
 
 
   
@@ -186,7 +185,7 @@ So `closing the loop' mechanisms in industrial symbiotic exchanges have a clear 
 
 %%%%%%%%%%%%%%%%%%
 %\section{Model Description}
-\section*{Methods} \label{sec:methods} % for scirep, standard sectioning
+\section*{Model description} \label{sec:modelDescription} % for scirep, standard sectioning
 
 
 %%%%%%%%%%%%%%%%%%
@@ -330,26 +329,7 @@ The initial position of companies can be setup in many ways. The most basic case
 
 
 
-%%%%%%%%%%%%%%%%%%
-\subsection*{Implementation}
 
-A first prototype was implemented in \texttt{NetLogo}. We also developed a \texttt{R} version, especially with the objective of an integration into a \texttt{shiny} web application for a real world use as described before. Model exploration was done using model exploration software OpenMole~\cite{reuillon2013openmole}. Code and results are available on the open repository of the project\footnote{at \texttt{https://github.com/SFICSSS16-CircularEconomy/CircularEconomy}}.
-
-
-
-
-%%%%%%%%%%%%%%%%%%
-\subsection*{Internal model validation}
-
-
-\paragraph*{Statistical Consistency}
-
-First of all, we verify the internal consistence of the model by looking at statistical distribution of indicators (shown in fig.~\ref{fig:stat-distrib} for some points of the parameter space). Distribution are unimodal but not necessarily normal. We can however roughly estimate the number of runs needed to reach a certain confidence interval on the mean. For example, assuming normal laws, to have a $\alpha$ level CI of width $\sigma$ around the mean, the result is independent of distributions and verifies $\sigma = \frac{4\sigma \cdot z_{1-\alpha}}{\sqrt{n}}$, what gives $n\simeq 64$. We run experiments with $n=50$ in the following.
-
-
-\paragraph*{Path-dependency and Emergence}
-
-% why abm is necessary
 
 
 
@@ -361,16 +341,10 @@ First of all, we verify the internal consistence of the model by looking at stat
 %%%%%%%%%%%%%%%%%%
 \subsubsection*{Uniform spatialization}
 
-We ran first experiments with a uniform initial distribution. Figures~\ref{fig:heatmap} and~\ref{fig:pareto} show heatmaps and Pareto front.
+We ran first experiments with a uniform initial distribution. Figures~\ref{fig:heatmap} and~\ref{fig:pareto} in Supplementary Material show heatmaps and Pareto front.
 
 
-%%%%%%%%%%%%%%%%%%
-\begin{figure}
-\hspace{-2cm}\includegraphics[width=1.3\textwidth]{figures/indics_distrib.png}
-\caption{Statistical distribution of indicators for some points in the parameter space.}
-\label{fig:stat-distrib}
-\end{figure}
-%%%%%%%%%%%%%%%%%%
+
 
 
 
@@ -382,20 +356,32 @@ We ran first experiments with a uniform initial distribution. Figures~\ref{fig:h
 %%%%%%%%%%%%%%%%%%
 \subsubsection*{Real city system}
 
-\textit{idem}
+\textbf{Interesting result} : qualitative transition when changing from uniform to real system - implications for decision making ; importance to embed in a real urban system. \comment{check with difference plots}
 
-\textbf{Interesting result} : qualitative transition when changing from uniform to real system - implications for decision making ; importance to embed in a real urban system.
 
 
 %%%%%%%%%%%%%%%%%%
-%\begin{figure}
-%\hspace{-2cm}\includegraphics[width=1.3\textwidth]{figures/ex_geo_0}
-%\caption{Implementation on a real city system with Netherlands}
-%\label{fig:geo-example}
-%\end{figure}
+\subsection*{Patterns of Policy Optimization to Grow the Circular Economy}
+
+An abstract application of the model yield in the exploration of potential policy optimization. We follow the rationale that the policy makers can influence on some parameters only, under the assumption that : (1) Transportation parameters are fixed by exogenous conditions, that include among other factors transportation infrastructure and energy price. These aspects fall under the influence of policies at a different level (both for scope and coverage) ; and (2) Distribution width is fixed, corresponding to the fixed industrial structure (roughly stylized in our model), which temporal scale of change is significantly larger in magnitude that the one of the model.
+
+In that context, the policy maker can influence the interaction range (gravity decay $d_0$) by giving incentives for collaboration between companies or a better circulation of information for example, and the collaboration threshold, also with incentives or technological help. These parameters correspond to short term relatively easy-to-implement policies . We study optimization patterns on the parameter plan $(d_0,\sigma)$. 
+
+
+
+%%%%%%%%%%%%%%%%%%
+\begin{figure}
+\includegraphics[width=0.48\textwidth]{figures/uniform_pareto_distribSd0_05_transportationCost0_5}
+\includegraphics[width=0.48\textwidth]{figures/uniform_pareto_distribSd0_55_transportationCost3_5}\\
+\includegraphics[width=0.48\textwidth]{figures/gis_pareto_distribSd0_05_transportationCost0_5}
+\includegraphics[width=0.48\textwidth]{figures/gis_pareto_distribSd0_05_transportationCost3_5}
+\caption{\textbf{Different qualitative patterns of Optimization.} We compare the Pareto fronts for the bi-objective optimization on cost and remaining waste, for both uniform setup (first row) and gis geographical setup (second row). }
+\label{fig:pareto-regime}
+\end{figure}
 %%%%%%%%%%%%%%%%%%
 
 \subsection*{Spatial correlation input and output distribution}
+
 In Table \ref{Reg1} regression results are shown with the amount of recycled materials (RM) in the system as dependent variable for a syntactic city system. The total amount of RM has a minimum of 0 and a maximum of 50 over all simulations. We used two important spatial predictors, all other model parameters are fixed. The first spatial variable distance decay, which is function defining interaction potential between two actors, defined as $exp(-(d_{ij}/\delta))$, where $d_{ij}$ is the Euclidean distance between agent $i$ and agent $j$ and $\delta$ is the distance decay parameter. For this example we chose $\delta \in \{0.5, 1, 1.5, 2\}$ The second spatial parameter is the Length correlation between input and output distributions, which is a measure for how well the input and output distributions are matched by geographical location. In the synthetic city system and real population density spatial setup, the distance decay can be interpreted as the probability that companies between `centers' (cities or industrial parks) interact and the Length correlation is the probability that actors within `centers' can interact. 
 
 As can be seen from Table \ref{Reg1} both predictors together explain 84.1 percent of the variance in this particular setting. Not surprisingly as the Distance decay goes up (and the interaction probability goes up as well), the amount of recycled materials goes up as well. For Length correlation we find a quadratic effect. To get a better overview of what this means the standardized predicted DC scores are plotted in Figure \ref{Pred1} (interactions included). Low Length correlation hardly have any effect on the predicted Degree Circularity of the system, only at high length correlations, 0.4 or higher, does the correlation have effect. These results seem to suggest that matching companies to be located within the same center/city/industrial park only has an effect when the matching is very strict.  
@@ -427,14 +413,13 @@ R$^{2}$ & 0.841 \\
 
 \begin{figure}
 \centering
-\includegraphics[width=0.5\textwidth]{Lcor2.pdf}
+\includegraphics[width=0.5\textwidth]{figures/Lcor2.pdf}
 \caption{Plot of predicted Degree Circularity}
 \label{Pred1}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%
 
-%\subsection*{Patterns of Policy Optimization to Grow the Circular Economy}
 
 
 
@@ -465,6 +450,18 @@ Model extensions for the final paper will be:
 
 The goal for later papers is to make a basis for an open source circular economy application that can be used to monitor the circular economy, as well as create a market place for waste products.
 
+
+\todo{
+Experiments with the model: 
+\begin{itemize}
+\item diversity of company sizes (power law of input-output distribution sizes?)
+\item discretization of the resource dimension 
+\item non-uniform distribution for the selection of a mean value when generating a company
+\end{itemize}
+}
+
+
+
 %%%%%%%%%%%%%%%%%%
 %\subsection*{Model Application}
 
@@ -475,10 +472,50 @@ The goal for later papers is to make a basis for an open source circular economy
 
 
 
-
-
 %%%%%%%%%%%%%%%%
 %\section*{Conclusion}
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%
+\section*{Methods}
+
+
+
+%%%%%%%%%%%%%%%%%%
+\subsection*{Implementation}
+
+A first prototype was implemented in \texttt{NetLogo}. We also developed a \texttt{R} version, especially with the objective of an integration into a \texttt{shiny} web application for a real world use as described before. Model exploration was done using model exploration software OpenMole~\cite{reuillon2013openmole}. Code and results are available on the open repository of the project\footnote{at \texttt{https://github.com/SFICSSS16-CircularEconomy/CircularEconomy}}.
+
+
+
+
+%%%%%%%%%%%%%%%%%%
+\subsection*{Internal model validation}
+
+
+\paragraph*{Statistical Consistency}
+
+First of all, we verify the internal consistence of the model by looking at statistical distribution of indicators (shown in fig.~\ref{fig:stat-distrib} for some points of the parameter space). Distribution are unimodal but not necessarily normal. We can however roughly estimate the number of runs needed to reach a certain confidence interval on the mean. For example, assuming normal laws, to have a $\alpha$ level CI of width $\sigma$ around the mean, the result is independent of distributions and verifies $\sigma = \frac{4\sigma \cdot z_{1-\alpha}}{\sqrt{n}}$, what gives $n\simeq 64$. We run experiments with $n=50$ in the following.
+
+\todo{select some figures only and explain the implications for these indicators}
+
+
+
+
+\paragraph*{Path-dependency and Emergence}
+
+% why abm is necessary
+
+We study the path-dependent character of models output, justifying the use of an agent-based model to reconstruct the emergent dynamics. \todo{for one config and one parameter, plot trajectories in time for several runs}
+
+
 
 
 
@@ -510,6 +547,16 @@ The goal for later papers is to make a basis for an open source circular economy
 
 
 \subsection*{Model Exploration}
+
+
+%%%%%%%%%%%%%%%%%%
+\begin{figure}
+\hspace{-2cm}\includegraphics[width=1.3\textwidth]{figures/indics_distrib.png}
+\caption{Statistical distribution of indicators for some points in the parameter space. }
+\label{fig:stat-distrib}
+\end{figure}
+%%%%%%%%%%%%%%%%%%
+
 
 
 %%%%%%%%%%%%%%%%%%
